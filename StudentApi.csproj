@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Swashbuckle generates the OpenAPI document AND serves the UI.
+         We deliberately do NOT reference Microsoft.AspNetCore.OpenApi: it is unused
+         (nothing calls AddOpenApi()/MapOpenApi()) and it pulls in a newer Microsoft.OpenApi
+         than Swashbuckle 6.6.2 is built against, which breaks document generation. -->
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+</Project>

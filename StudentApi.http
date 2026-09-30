@@ -1,0 +1,30 @@
+@StudentApi_HostAddress = http://localhost:5157
+
+### 1. Get all instalments for a student (expect 200 + four instalments)
+GET {{StudentApi_HostAddress}}/api/students/STU123/installments
+Accept: application/json
+
+### 2. Pay instalment 2 (expect 200, status becomes "Paid", paidDate = today)
+PUT {{StudentApi_HostAddress}}/api/students/STU123/installments/2/pay
+Accept: application/json
+
+### 3. Pay instalment 2 again (expect 400 - already paid, original PaidDate preserved)
+PUT {{StudentApi_HostAddress}}/api/students/STU123/installments/2/pay
+Accept: application/json
+
+### 4. Pay instalment 1, seeded as already paid (expect 400)
+PUT {{StudentApi_HostAddress}}/api/students/STU123/installments/1/pay
+Accept: application/json
+
+### 5. Unknown student (expect 404)
+GET {{StudentApi_HostAddress}}/api/students/STU999/installments
+Accept: application/json
+
+### 6. Unknown instalment number (expect 404)
+PUT {{StudentApi_HostAddress}}/api/students/STU123/installments/99/pay
+Accept: application/json
+
+### 7. The raw OpenAPI document - if this does not start with {"openapi":"3.0.1" ...
+###    ... then the document itself is broken, not the UI.
+GET {{StudentApi_HostAddress}}/swagger/v1/swagger.json
+Accept: application/json
