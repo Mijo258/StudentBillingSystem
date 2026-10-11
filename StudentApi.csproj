@@ -12,6 +12,22 @@
          (nothing calls AddOpenApi()/MapOpenApi()) and it pulls in a newer Microsoft.OpenApi
          than Swashbuckle 6.6.2 is built against, which breaks document generation. -->
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+
+    <!-- The Oracle provider for EF Core. This single package brings in both the EF Core
+         relational stack and Oracle.ManagedDataAccess.Core, which is where UseOracle() and
+         the Oracle connection handling come from. Version 8.x is the line that targets EF Core 8.
+         If restore fails with NU1102 (version not found), run:
+             dotnet add package Oracle.EntityFrameworkCore
+         and let NuGet pick the current 8.x version instead. -->
+    <PackageReference Include="Oracle.EntityFrameworkCore" Version="8.23.60" />
+
+    <!-- Design-time only: provides the services `dotnet ef migrations add` / `database update`
+         need. PrivateAssets="all" keeps it out of the published output - the running app does
+         not need it, only the migration tooling does. -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>

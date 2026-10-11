@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lenovo\\StudentBillingSystem\\StudentApi\\StudentApi.csproj": {}
+    "C:\\Users\\Lenovo\\StudentBIllingSystem\\StudentApi\\StudentApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lenovo\\StudentBillingSystem\\StudentApi\\StudentApi.csproj": {
+    "C:\\Users\\Lenovo\\StudentBIllingSystem\\StudentApi\\StudentApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\StudentBillingSystem\\StudentApi\\StudentApi.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\StudentBIllingSystem\\StudentApi\\StudentApi.csproj",
         "projectName": "StudentApi",
-        "projectPath": "C:\\Users\\Lenovo\\StudentBillingSystem\\StudentApi\\StudentApi.csproj",
+        "projectPath": "C:\\Users\\Lenovo\\StudentBIllingSystem\\StudentApi\\StudentApi.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\StudentBillingSystem\\StudentApi\\obj\\",
+        "outputPath": "C:\\Users\\Lenovo\\StudentBIllingSystem\\StudentApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -43,6 +43,16 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Oracle.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.23.60, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"

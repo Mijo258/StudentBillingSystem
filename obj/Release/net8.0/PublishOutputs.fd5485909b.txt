@@ -1,0 +1,11 @@
+C:\Users\Lenovo\StudentBillingSystem\StudentApi\publish\StudentApi.exe
+C:\Users\Lenovo\StudentBillingSystem\StudentApi\publish\appsettings.Development.json
+C:\Users\Lenovo\StudentBillingSystem\StudentApi\publish\appsettings.json
+C:\Users\Lenovo\StudentBillingSystem\StudentApi\publish\StudentApi.dll
+C:\Users\Lenovo\StudentBillingSystem\StudentApi\publish\StudentApi.deps.json
+C:\Users\Lenovo\StudentBillingSystem\StudentApi\publish\StudentApi.runtimeconfig.json
+C:\Users\Lenovo\StudentBillingSystem\StudentApi\publish\StudentApi.pdb
+C:\Users\Lenovo\StudentBillingSystem\StudentApi\publish\Microsoft.OpenApi.dll
+C:\Users\Lenovo\StudentBillingSystem\StudentApi\publish\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Lenovo\StudentBillingSystem\StudentApi\publish\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Lenovo\StudentBillingSystem\StudentApi\publish\Swashbuckle.AspNetCore.SwaggerUI.dll

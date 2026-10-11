@@ -1,4 +1,5 @@
 using Microsoft.OpenApi.Models;
+using StudentApi.Data;
 using StudentApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,10 +20,23 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+// Register the database context. Which database we run on, and its connection string, are
+// read from configuration inside Data/DatabaseSetup.cs - this file deliberately does not name
+// a database anywhere, which is what makes the provider swappable.
+//
+// AddDbContext gives StudentDbContext a SCOPED lifetime: ASP.NET Core creates one instance per
+// HTTP request and disposes it when the request ends.
+builder.Services.AddStudentDatabase(builder.Configuration);
+
 // Register the billing service so the controller can receive it via constructor injection.
-// Singleton: the mock data lives in a static list, so one shared instance is all we need,
-// and the payments written during the app's lifetime stay visible to later requests.
-builder.Services.AddSingleton<IStudentBillingService, StudentBillingService>();
+//
+// This MUST be Scoped (or Transient), not Singleton. A singleton is created once and lives
+// for the whole process, so it can never legally hold a per-request DbContext - that is the
+// "captive dependency" problem, and ASP.NET Core refuses to start rather than let it slide:
+//     InvalidOperationException: Cannot consume scoped service 'StudentDbContext'
+//     from singleton 'IStudentBillingService'.
+// Matching the context's lifetime is both correct and the simplest rule to remember.
+builder.Services.AddScoped<IStudentBillingService, StudentBillingService>();
 
 var app = builder.Build();
 
